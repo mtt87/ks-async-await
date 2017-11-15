@@ -5,9 +5,8 @@ async function getPageTitle(url) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
-    const Title = await page.$('title');
-    const pageTitle = await page.evaluate(body => body.innerHTML, Title);
-    console.log(pageTitle);
+    const TitleEl = await page.$('title');
+    const pageTitle = await page.evaluate(body => body.innerHTML, TitleEl);
     await browser.close();
     return pageTitle;
   } catch (err) {
