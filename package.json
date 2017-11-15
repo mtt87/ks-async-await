@@ -1,0 +1,19 @@
+{
+  "name": "ks-async-await",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.js",
+  "scripts": {
+    "test": "jest --no-cache"
+  },
+  "author": "Mattia Asti",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^0.13.0"
+  },
+  "devDependencies": {
+    "babel-jest": "^21.2.0",
+    "babel-preset-es2015": "^6.24.1",
+    "jest": "^21.2.1"
+  }
+}
