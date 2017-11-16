@@ -87,7 +87,6 @@ function executeAsyncTask() {
 }
 ```
 
-
 # Async/await
 Spec: https://tc39.github.io/ecmascript-asyncawait/
 ```js
@@ -113,7 +112,19 @@ Node [http://node.green](http://node.green/)
 ![](node.green.png)
 
 With Babel you need to [transform async to generators](https://babeljs.io/docs/plugins/transform-async-to-generator/) that will make it work on `node` > 4.
-You can use [ES2017 preset](https://babeljs.io/docs/plugins/preset-es2017/) that includes this.
+For a new project I suggest [babel-preset-env](https://github.com/babel/babel/tree/master/experimental/babel-preset-env) which compiles ES2015+ down to ES5 by automatically determining the Babel plugins and polyfills you need based on your targeted browser or runtime environments.
+```json
+{
+  "presets": [
+    ["@babel/env", {
+      "targets": {
+        "browsers": ["last 2 versions", "safari >= 7"],
+        "node": "6.10"
+      }
+    }]
+  ]
+}
+```
 
 ## How it works?
 
@@ -156,3 +167,18 @@ async function parallel() {
 ```js
 let [resA, resB] = await Promise.all([wait(500), wait(500)])
 ```
+
+
+## Generators
+Left them at the bottom since I haven't used them much but reading here and there, seems like using a library like https://github.com/tj/co you can use generators more or less in the same way as you use async/await.
+There should be no reason anymore to use this.
+```js
+const co = require('co');
+
+co(function *(){
+  // yield any promise
+  var result = yield Promise.resolve(true);
+}).catch(onerror);
+```
+- They work in a similar way
+- You will probably use a library to make them
