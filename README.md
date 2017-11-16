@@ -1,4 +1,6 @@
-# Callbacks
+# Why create async/await?
+
+## Callbacks
 ```js
 function doSomeAsyncStuff(done) {
   getData(function(err, x) {
@@ -18,7 +20,7 @@ function doSomeAsyncStuff(done) {
 - Doesn't feel the same as reading synchronous code
 - More prone to errors?
 
-# Async utility modules
+## Async utility modules
 ```js
 const async = require('async');
 
@@ -45,7 +47,7 @@ async.waterfall(
 - Still doesn't feel like reading synchronous code
 
 
-# Promises
+## Promises
 
 Example where you can't just sequentially `.then()` or you'll create a closure and won't be able to access `valueA` inside `functionC(valueA, valueB)`
 ```js
@@ -149,4 +151,8 @@ async function parallel() {
   await wait2;
   return 'done!';
 }
+```
+`Promise.all[]` still works perfectly
+```js
+let [resA, resB] = await Promise.all([wait(500), wait(500)])
 ```
