@@ -1,4 +1,4 @@
-# Why create async/await?
+# Why use async/await?
 
 ## Callbacks
 ```js
