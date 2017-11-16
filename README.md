@@ -17,7 +17,7 @@ function doSomeAsyncStuff(done) {
 ```
 - Harder to read, harder to debug, especially for newbies
 - Convention cb(err, result) not necessarily obvious
-- Doesn't feel the same as reading synchronous code
+- Doesn't feel the same as reading linear and sequential code
 - More prone to errors?
 
 ## Async utility modules
@@ -44,7 +44,7 @@ async.waterfall(
 - You need to read the documentation of that library
 - This code will be transformed
 - Will it be performant? Will it be optimized by v8? Who knows...
-- Still doesn't feel like reading synchronous code
+- Still doesn't feel like reading linear and sequential code
 
 
 ## Promises
