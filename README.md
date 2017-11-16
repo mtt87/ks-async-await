@@ -180,5 +180,3 @@ co(function *(){
   var result = yield Promise.resolve(true);
 }).catch(onerror);
 ```
-- They work in a similar way
-- You will probably use a library to make them
