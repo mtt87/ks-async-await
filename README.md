@@ -4,11 +4,17 @@
 ```js
 function doSomeAsyncStuff(done) {
   getData(function(err, x) {
-    if (err) return done(err);
+    if (err) {
+      return done(err);
+    }
     return getMoreData(x, function(err, y) {
-      if (err) return done(err);
+      if (err) {
+        return done(err);
+      }
       return getMoreData(y, function(err, z) {
-        if (err) return done(err);
+        if (err) {
+          return done(err);
+        }
         return done(null, z);
       });
     });
@@ -42,8 +48,7 @@ async.waterfall(
 
 - Using an external module not standard JS features
 - You need to read the documentation of that library
-- This code will be transformed
-- Will it be performant? Will it be optimized by v8? Who knows...
+- This code will be transformed, harder to debug (stack trace?)
 - Still doesn't feel like reading linear and sequential code
 
 
@@ -145,6 +150,7 @@ getPage(1)
 - You can't call `await` at the top level at the moment in node and all the browsers except Chrome.
 
 ## Patterns / control flow / concurrency
+### Sequential
 This will take 1000ms total
 ```js
 async function series() {
@@ -153,6 +159,7 @@ async function series() {
   return 'done!';
 }
 ```
+### Parallel
 This instead would take only 500ms total
 ```js
 async function parallel() {
