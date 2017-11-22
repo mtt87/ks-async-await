@@ -175,6 +175,9 @@ async function parallel() {
 let [resA, resB] = await Promise.all([wait(500), wait(500)])
 ```
 
+## Error handling
+See errors.test.js
+
 
 ## Generators
 Left them at the bottom since I haven't used them much but reading here and there, seems like using a library like https://github.com/tj/co you can use generators more or less in the same way as you use async/await.
